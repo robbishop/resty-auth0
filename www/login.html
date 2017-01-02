@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{auth0Config.APP_NAME}} Login</title>
+</head>
+<body>
+  <h1>{{message}}</h1>
+  <script src="https://cdn.auth0.com/js/lock/10.6/lock.min.js"></script>
+  <script type="text/javascript">
+    var lock = new Auth0Lock('{{auth0Config.AUTH0_CLIENT_ID}}', '{{auth0Config.AUTH0_DOMAIN}}', {
+      auth: {
+        redirectUrl: '{*auth0Config.AUTH0_CALLBACK_URL*}'
+      }
+    });
+
+    function signin() {
+      lock.show();
+    }
+  </script>
+  <button onclick="signin()">Login</button>
+</body>
+</html>
