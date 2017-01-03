@@ -22,7 +22,7 @@ auth0conf = {
 }
 ```
 
-Add the config/site.conf into nginx, by copy or by symlink. The remaining files are found using the environment variable based on the environment variable AUTH0_BASE_DIR which refers to the root of this repository. The following snippet shows how this environment variable is used
+Add the config/site.conf into nginx, by copy or by symlink. The remaining files are found using the environment variable AUTH0_BASE_DIR which refers to the root of this repository. The following snippet shows how this environment variable is used
 ```
 init_by_lua_block {
    auth0BaseDir = os.getenv("AUTH0_BASE_DIR")
