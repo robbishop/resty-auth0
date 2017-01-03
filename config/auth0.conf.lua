@@ -1,3 +1,4 @@
+-- Please, don't introduce global variables
 auth0conf = {
     AUTH0_CLIENT_ID="[your auth0 client id]";
     AUTH0_CLIENT_SECRET="[your auth0 client secret]";
