@@ -66,10 +66,12 @@ end
 function _M.isauth()
   local session = require "resty.session".open()
   if not session.present or not session.data.user then
+    ngx.status = 401 -- unauthorized
     session:start()
     session.data.original_url = ngx.var.request_uri
     session:save()
-    return ngx.redirect("/login")
+    local template = require "resty.template"
+    template.render("login.html", { auth0Config = _M.config })
   end
 end
 
